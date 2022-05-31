@@ -11,3 +11,123 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  /*Stuff in container won't go over this width */
+  max-width: 1500px;
+  margin-right: auto;
+  margin-left: auto;
+
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/*Use css grid to make notes resopnsive aka our className notes-list */
+.notes-list {
+  display:grid;
+  grid-gap: 1rem;
+
+  /* This tells css I want 4 columns with each set width of 250px --> NOT RESPONSIVE THOUGH
+  grid-template-columns: repeat(4, 250px); */
+
+  /*This tells css I want the browser to auto-fit with a minmax of 250px to 1fr*/
+  /* The column cannot be smaller than 250px and cannot be bigger than 1 fractional unit or whatever space is availble*/
+  /* For instance, if we move our browser, if grid detects that a note is getting to the width of 250px, will create a column for the note*/
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  
+}
+
+.note.new {
+  background-color: #67d7cc;
+
+}
+
+.delete-icon {
+
+  cursor: pointer;
+}
+
+
+textarea {
+  /* removes the text area and the resize from the text area that comes with native html */
+  border: none;
+  resize: none;
+  background-color: #67d7cc;
+}
+
+/* When user begins to type */
+textarea:focus {
+  outline: none;
+}
+
+.save {
+  background-color: #e1e1e1;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.save:hover {
+  background-color: #ededed;
+  cursor: pointer;
+}
+
+.note{
+  background-color: #fef68a;
+  /* Space out the notes */
+  margin-bottom: 10px;
+  border-radius: 10px;
+  /*Padded out the  elements to the border, giving it more padding around the elemnt */
+  padding: 2rem; 
+  min-height: 170px;
+
+  display:flex;
+  flex-direction: column;
+  /*Evenly space items in container so first item is beginning of container, last item is end of container */
+  justify-content: space-between;
+
+
+  /*Keep spacing that is added to the text, helpful when we save notes */
+  white-space: pre-wrap 
+}
+
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  background-color: rgb(233, 233, 233);
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 1.5em;
+}
+
+.search input {
+  border: none;
+  background-color: rgb(233, 233, 233);
+  width: 100%;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*Dark mode setting for application */
+.dark-mode {
+  background-color: black;
+  height: 100vh;
+}
+
+.dark-mode h1 {
+  color: white;
+}
