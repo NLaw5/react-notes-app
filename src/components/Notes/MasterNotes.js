@@ -5,10 +5,19 @@ import Search from './Search';
 import Header from './Header'
 import { MdSearch } from 'react-icons/md';
 
-function MasterNotes() {
+function MasterNotes({user}) {
+
+  
+  // useEffect(() => {
+  //   //Store in localStorage that user is currently logged in:
+  //   localStorage.setItem('userEmail', user.email)
+  //   localStorage.setItem('userName', user.displayName)
+  //   localStorage.setItem('uid', user.uid)
+  // }, user)
 
   const [searchText, setSearchText] = useState('')
   const [darkMode, setDarkMode] = useState(false)
+
 
   const settingSearch = (e) => {
     setSearchText(e)
