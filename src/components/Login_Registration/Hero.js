@@ -1,44 +1,50 @@
-import React from 'react'
+import React from "react";
 // import {useNavigate} from "react-router-dom"
 
-function Hero({handleLogout, user}) {
-  
+function Hero({ handleLogout, user }) {
   // let navigate = useNavigate();
-  const checkStorage = localStorage.getItem('token')
+  const checkStorage = localStorage.getItem("token");
   let isLoggedIn = false;
-  if(checkStorage == 'true')
-  {
+  if (checkStorage == "true") {
     isLoggedIn = true;
-  }
-  else
-  {
+  } else {
     isLoggedIn = false;
   }
 
-  const getUserName = localStorage.getItem('userName')
+  const getUserName = localStorage.getItem("userName");
 
-  const clickHandler =() => {
-    handleLogout()
+  const clickHandler = () => {
+    handleLogout();
     // navigate("/notes")
-  }
+  };
 
   return (
     <section className="hero">
-        <nav>
+      <nav>
+        <>
+          {getUserName ? (
             <>
-              {
-                getUserName ?  (<><h2>Welcome {getUserName}!</h2></>) : (<><h2>Welcome {user.displayName}!</h2></>)
-              }
+              <h2>Welcome {getUserName}!</h2>
             </>
+          ) : (
             <>
-                {
-                    isLoggedIn ? (<button className="login-button" onClick={()=> clickHandler()}>Logout</button> ) : <></>
-                }
+              <h2>Welcome {user.displayName}!</h2>
             </>
-            {/* <button className="login-button" onClick={() => clickHandler()}>Logout</button> */}
-        </nav>
+          )}
+        </>
+        <>
+          {isLoggedIn ? (
+            <button className="login-button" onClick={() => clickHandler()}>
+              Logout
+            </button>
+          ) : (
+            <></>
+          )}
+        </>
+        {/* <button className="login-button" onClick={() => clickHandler()}>Logout</button> */}
+      </nav>
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

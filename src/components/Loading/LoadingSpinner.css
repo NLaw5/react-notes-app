@@ -1,0 +1,17 @@
+@keyframes spinner { /*Animation name is spinner */
+    0% { /*Spinner starting position */
+      transform: rotate(0deg);
+    }
+    100% { /*Spinner ending position */
+      transform: rotate(360deg);
+    }
+  }
+  .loading-spinner {
+    margin: 100px auto;
+    width: 100px;
+    height: 100px;
+    border: 10px solid #f3f3f3; /* Light grey */
+    border-top: 10px solid #4b4bb3; /* Light Blueish */
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+  }

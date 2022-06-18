@@ -1,26 +1,25 @@
-import React, {useEffect} from 'react'
-import Note from './Note'
-import AddNote from './AddNote'
+import React, { useEffect } from "react";
+import Note from "./Note";
+import AddNote from "./AddNote";
 
-function NotesList({notesData, addNoteFunction, addDeleteFunction}) {
-
+function NotesList({
+  notesData,
+  addNoteFunction,
+  addDeleteFunction,
+  setOpenModal,
+}) {
   useEffect(() => {
-    console.log(notesData)
-  
-  }, [])
-  
+    console.log(notesData);
+  }, []);
+
   return (
     <div className="notes-list">
-        {/* <Note/>
-        <Note/>
-        <Note/>
-        <Note/> */}
-        {
-          notesData.map((data) => <Note details={data} addDeleteFunction={addDeleteFunction}/>)
-        }
-        <AddNote addNoteFunction={addNoteFunction}/>
+      {notesData.map((data) => (
+        <Note details={data} addDeleteFunction={addDeleteFunction} />
+      ))}
+      <AddNote addNoteFunction={addNoteFunction} setOpenModal={setOpenModal} />
     </div>
-  )
+  );
 }
 
-export default NotesList
+export default NotesList;

@@ -33,7 +33,7 @@ code {
   /*This tells css I want the browser to auto-fit with a minmax of 250px to 1fr*/
   /* The column cannot be smaller than 250px and cannot be bigger than 1 fractional unit or whatever space is availble*/
   /* For instance, if we move our browser, if grid detects that a note is getting to the width of 250px, will create a column for the note*/
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   
 }
 
@@ -53,6 +53,7 @@ textarea {
   border: none;
   resize: none;
   background-color: #67d7cc;
+  font-size:16px;
 }
 
 /* When user begins to type */
@@ -103,7 +104,7 @@ textarea:focus {
   background-color: rgb(233, 233, 233);
   border-radius: 10px;
   padding: 5px;
-  margin-bottom: 1.5em;
+  /* margin-bottom: 1.5em; */
 }
 
 .search input {
@@ -129,7 +130,7 @@ textarea:focus {
   height: 100vh;
 }
 
-.dark-mode h1 {
+.dark-mode .toggleDarkMode {
   color: white;
 }
 
@@ -266,4 +267,9 @@ textarea:focus {
 .hero nav button {
   width: 86px;
   padding: 8px 0;
+}
+
+/*Declaring Dropbox CSS */
+.filterCategory {
+  width: 20%;
 }
